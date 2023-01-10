@@ -1,0 +1,31 @@
+<h1>Todos os Tasks </h1>
+
+<ul class="task-list">
+    {{#each tasks}}
+
+    <li>
+       {{#if this.document}}
+        <a href="/" class="title">{{this.title}}</a>
+        {{else }}
+        <a href="/" class="title done">{{this.title}}</a>
+        {{/if}}
+            
+        <div class="actions">
+        <form action="/tasks/updatestatus" method="post">
+        <input type="hidden" name="id" value="{{this.id}}">
+        <input type="hidden" name="document" value="{{this.document}}">
+        <button type="submit"><i class="bi bi-check2"></i></button>
+        </form>
+        <a href="/tasks/edit/{{this.id}}"><i class="bi bi-pencil-square"></i></a>
+        <form action="/tasks/remove" method="post">
+        <input type="hidden" name="id" value="{{this.id}}">
+            <button type="submit"><a href="/"><i class="bi bi-x-lg"></i></a></button>
+        </form>
+        
+    </div>
+    </li>
+
+
+
+    {{/each}}
+</ul>

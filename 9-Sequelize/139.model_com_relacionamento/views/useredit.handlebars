@@ -1,0 +1,21 @@
+<h1>Editando {{user.name}}</h1>
+
+<form action="./../update" method="POST" class="form">
+<div class="form-control">
+<label for="name">Nomeee:</label>
+<input type="text" name="name" value="{{user.name}}">
+</div>
+<div class="form-control">
+<label for="occupation">Profissão:</label>
+<input type="text" name="occupation" value="{{user.occupation}}" placeholder="digite sua profiussão">
+</div>
+
+<div class="form-control form-checkbox">
+
+<label for="newsletter">Envar Promoções ???</label>
+</div>
+<input type="hidden" name="id" value="{{user.id}}" />
+<input type="submit" value="ATUALIZAR">
+
+
+</form>

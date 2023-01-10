@@ -1,0 +1,149 @@
+*{
+    font-family: Helvetica;
+    margin:0;
+}
+h1{
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+#navbar{
+    border-bottom: 1px solid #ccc;
+    padding: 1em 2em;
+    margin-bottom: 1em;
+    background-color: #db4c3f;
+    color:#fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+}
+
+#navbar ul li{
+    margin-left: 1em;
+}
+
+#navbar ul li a{
+    text-decoration:none;
+    color:#fff;
+}
+
+/*USERS*/
+
+.container{
+
+    max-width: 450px;
+    margin: 2em auto;
+    
+}
+
+.container .item{
+    border:1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    flex: 1 1 29%;
+    max-width: 29%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.item h2, .item p{
+    margin-bottom: 0.8em;
+}
+
+
+
+.form-control{
+    display: flex;
+    flex-direction: column;
+    margin-bottom:  1em;
+}
+
+.form-control label{
+    font-weight: bold;
+    margin-bottom: .3em;
+}
+
+.form-control input,
+.form-control textarea{
+    padding: 7px;
+    border-radius:3px;
+    border:1px solid #ccc;
+}
+
+form input[type="submit"]{
+    background-color: #db4c3f;
+    color:#fff;
+    padding: .7em 1.5em;
+    font-weight: bold;
+    border-radius:5px;
+    border: none;
+    cursor: pointer;
+}
+
+.task-list{
+    list-style: none;
+    margin-top: 1em;
+}
+
+
+
+.task-list li{
+    padding: .5em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.task-list .title{
+    text-decoration: none;
+    font-weight: bold;
+    color: #db4c3f;
+    transition: .5s;
+    font-size: 1.2em;
+}
+
+.task-list .title a:hover{
+    color:#333;
+}
+
+.actions{
+    display: flex;
+    
+}
+
+.actions i{
+    font-size:1.5em;
+    margin-right: .6em;
+    color:#333;
+}
+
+.actions i:hover{
+    color:#db4c3f;
+}
+
+.actions form{
+    margin:0;
+}
+
+.actions button{
+    background-color: transparent;
+    border: none;
+    cursor:pointer;
+}
+
+.title.done{
+    text-decoration: line-through;
+    color:#ccc;
+}
+
+
+

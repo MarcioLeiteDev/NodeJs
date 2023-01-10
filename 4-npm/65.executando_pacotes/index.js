@@ -1,0 +1,1 @@
+// npx cowsay "VAi tomar no Cu" npx cowsay -d "morri"

@@ -1,0 +1,34 @@
+<div class="dashboard">
+    <div class="title-container">
+        <h2>Dashboard</h2>
+
+        <a href="/toughts/add" class="btn"> Criar Pensamentos</a>
+
+    </div>
+    <h3>Seus Pensamentos</h3>
+
+{{#if emptyTought}}
+   <p>Ainda não há pensamentos seus, comece a criar  <a href="/toughts/add">por aqui</a></p> 
+{{/if}}
+    <ul>
+
+        {{#each toughts }}
+
+        <li>
+            <span class="label">{{this.title}}</span>
+            <span class="actions">
+
+                <a href="/" class="btn"> Editar </a>
+
+                <form action="/toughts/remove" method="post">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="submit" value="Excluir" class="btn">
+                </form>
+
+            </span>
+        </li>
+
+        {{/each}}
+    </ul>
+
+</div>
