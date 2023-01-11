@@ -1,6 +1,11 @@
 const User = require('../models/User')
 
 const bcrypt = require('bcrypt')
+
+const jwt = require('jsonwebtoken')
+
+//helpers
+const getToken = require('../helpers/get-token')
 const createUsertoken = require('../helpers/create-user-token')
 
 module.exports = class UserController{
@@ -88,9 +93,73 @@ module.exports = class UserController{
         res.status(500).json({message: err})
        }
 
+
        //create user
 
        // res.json('Ola Get a Pet')
+    }
+
+    
+    static async login(req,res){
+
+        const { email, password } = req.body
+
+        if(!email){
+            res.status(422).json({ message: 'O e-mail e obrigatório'})
+            return
+        }
+
+        
+        if(!password){
+            res.status(422).json({ message: 'A senha e obrigatória'})
+            return
+        }
+        
+        
+       //check if user exists
+      
+       const user = await User.findOne( {email: email})
+
+       if(!user){
+        res.
+        status(422).
+        json({
+            message: "não ha usuario cadastrado com esse e-mail"
+        })
+        return
+       }
+
+       //check password match if db password
+       const checkPassword = await bcrypt.compare(password, user.password)
+
+       if(!checkPassword){
+        res.
+        status(422).
+        json({
+            message: "senha invalida"
+        })
+        return
+       }
+       await createUsertoken(user, req,res)
+    }
+
+    static async checkUser(req,res){
+        let currentUser
+
+        if(req.headers.authorization){
+
+            const token = getToken(req)
+            const decoded = jwt.verify(token, 'nossosecret')
+
+            currentUser = await User.findById(decoded.id)
+
+            currentUser.password = undefined
+            
+        }else{
+            currentUser = null
+        }
+
+        res.status(200).send(currentUser)
     }
 
 }

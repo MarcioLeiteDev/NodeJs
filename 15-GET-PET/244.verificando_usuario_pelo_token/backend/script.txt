@@ -1,0 +1,1 @@
+npm install express bcrypt cookie-parser cors jsonwebtoken mongoose multer nodemon
